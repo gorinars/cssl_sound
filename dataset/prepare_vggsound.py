@@ -67,15 +67,18 @@ def prepare_split_vggsound_csv(
     for name, paths in train_paths.items():
         for fname in paths:
             class_id = name2idx[name]
-            train_splits[class2task[class_id]].append((fname, class_id, name))
+            if class_id in class2task:
+                train_splits[class2task[class_id]].append((fname, class_id, name))
     for name, paths in valid_paths.items():
         for fname in paths:
             class_id = name2idx[name]
-            valid_splits[class2task[class_id]].append((fname, class_id, name))
+            if class_id in class2task:
+                valid_splits[class2task[class_id]].append((fname, class_id, name))
     for name, paths in test_paths.items():
         for fname in paths:
             class_id = name2idx[name]
-            test_splits[class2task[class_id]].append((fname, class_id, name))
+            if class_id in class2task:
+                test_splits[class2task[class_id]].append((fname, class_id, name))
 
     # training csv for each task
     for split, split_data in zip(['train', 'valid', 'test'], [train_splits, valid_splits, test_splits]):

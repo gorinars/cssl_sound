@@ -422,6 +422,20 @@ if __name__ == "__main__":
             print("==> Resuming from interrupted checkpointer at {}".format(hparams['checkpointer'].checkpoints_dir))
             hparams['resume_interrupt'] = False
 
+        if hparams['ssl_checkpoints_dir'] is not None:
+            # load weights from pretrained embedder and normalizer
+            ssl_checkpointer = sb.utils.checkpoints.Checkpointer(
+                os.path.join(hparams['ssl_checkpoints_dir'], 'task{}'.format(task_idx)),
+                recoverables={
+                    'embedding_model': hparams['embedding_model'],
+                    'normalizer': hparams['mean_var_norm'],
+                    'predictor': hparams['predictor'],
+                    'projector': hparams['projector'],
+                },
+            )
+            ssl_checkpointer.recover_if_possible()
+            print("==> Recovering embedder checkpointer at {}".format(ssl_checkpointer.checkpoints_dir))
+
         # TODO: generate task-wise data
         curr_train_replay = prepare_task_csv_from_replay(
             os.path.join(hparams['save_folder'], 'train_task{}_raw.csv'.format(task_idx)),
