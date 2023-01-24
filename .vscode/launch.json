@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "train",
+            "type": "python",
+            "request": "launch",
+            "program": "supclr_train.py",
+            "console": "integratedTerminal",
+            "args": ["hparams/vgg/unsupclr_train.yaml"],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        },
+        {
+            "name": "train_baby",
+            "type": "python",
+            "request": "launch",
+            "program": "supclr_train.py",
+            "console": "integratedTerminal",
+            "args": ["hparams/vgg/unsupclr_train_baby.yaml"],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        },
+        {
+            "name": "train_ubaby",
+            "type": "python",
+            "request": "launch",
+            "program": "supclr_train.py",
+            "console": "integratedTerminal",
+            "args": ["hparams/vgg/unsupclr_train_ubaby.yaml"],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        },
+        {
+            "name": "supclr_finetune.py",
+            "type": "python",
+            "request": "launch",
+            "program": "supclr_finetune.py",
+            "console": "integratedTerminal",
+            "args": ["hparams/vgg/unsupclr_train_ubaby_dist.yaml"],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        },
+    ]
+}
