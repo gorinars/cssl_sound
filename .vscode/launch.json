@@ -35,12 +35,12 @@
             "justMyCode": false
         },
         {
-            "name": "supclr_finetune.py",
+            "name": "supclr_finetune_bs.py",
             "type": "python",
             "request": "launch",
-            "program": "supclr_finetune.py",
+            "program": "supclr_finetune_bs.py",
             "console": "integratedTerminal",
-            "args": ["hparams/vgg/unsupclr_train_ubaby_dist.yaml"],
+            "args": ["hparams/ft_ub+vgg.yaml"],
             "cwd": "${workspaceFolder}",
             "justMyCode": false
         },

@@ -91,6 +91,7 @@ def prepare_split(
             data = [{
                 'ID': i,
                 'wav_path': e[0],
+                'is_cry': e[2] == 'baby crying',
                 'class_idx': e[1],
                 'class_name': e[2]
             } for i, e in enumerate(split_data[task_idx])]
