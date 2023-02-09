@@ -14,7 +14,7 @@ resume_task_idx: 0
 balanced_cry: True
 
 time_stamp: placeholder
-experiment_name: ft_ubtrn+vgg
+experiment_name: ft_vgub+vggall_balanced
 # output_folder: !ref results/<experiment_name>/<seed>
 output_base: results #/home/agorin/datasets/results_cssl
 output_folder: !ref <output_base>/<time_stamp>_seed_<seed>+<experiment_name>
@@ -36,8 +36,8 @@ mixup_alpha: 0.4
 train_duration: 4.0
 
 # Training parameters
-number_of_epochs: 50
-batch_size: 64
+number_of_epochs: 100
+batch_size: 200
 # lr: 0.001
 # base_lr: 0.00000001
 # max_lr: !ref <lr>
